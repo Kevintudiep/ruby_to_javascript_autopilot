@@ -12,6 +12,17 @@ def add_car(cars, new_car)
   "Adding new car to fleet. Fleet size is now #{cars.length}."
 end
 
+def add_one_car_per_day(cars, num_days)
+  num_days.times do
+    new_car = get_new_car
+    puts add_car(cars, new_car)
+    command_fleet(cars)
+  end
+end
+
+cars = []
+add_one_car_per_day(cars, 10)
+
 def pick_up_passenger(car)
   car[:passengers] += 1
   car[:gas] -= 10
@@ -80,14 +91,3 @@ def command_fleet(cars)
   end
   puts '---'
 end
-
-def add_one_car_per_day(cars, num_days)
-  num_days.times do
-    new_car = get_new_car
-    puts add_car(cars, new_car)
-    command_fleet(cars)
-  end
-end
-
-cars = []
-add_one_car_per_day(cars, 10)
